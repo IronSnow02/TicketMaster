@@ -1,0 +1,1448 @@
+---
+title: "Unveiling the Impact of Advertisement on User Choices: An Experimental Study on Drip Pricing Strategies in Online Ticket Purchases"
+author:  "Sherry Liang, Yuxuan Liu, Yuxuan Zhang,
+Jintong He, Liyuan Mei, Kyle Chipman"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment="", warning = FALSE, message = FALSE, tidy.opts=list(width.cutoff=55), tidy = TRUE)
+```
+
+## Part 1:  Research Proposal
+
+### Executive Summary
+
+**Authors**: Kyle Chipman(50%) Liyuan Mei (50%)
+
+The purpose of this research is to improve Ticketmaster's ticket fee model by evaluating and investigating alternatives to its “drip pricing” tactic used in ticket sales. Drip pricing—which involves withholding additional costs (e.g., transaction or service fees) until later in the transaction — is a prevalent e-commerce practice, especially for primary and secondary event ticket marketplaces. Although this strategy increases vendors' revenue, reducing price transparency often leads to customer dissatisfaction. Our study aims to investigate whether replacing fees with digital video advertisements as an end-of-transaction obligation might be a better alternative. This study specifically evaluates if this alternative to drip pricing might improve the rate of transaction completion while also maintaining fee economics similar to dripped service fees. This study collects real-time transaction data by including our optional consumer choice experience within TicketMaster’s online ticket purchase process. We hypothesize that giving customers the choice to watch advertisements might be a revenue-neutral, customer-friendly alternative for drip pricing.
+
+### Statement of the Problem
+
+**Authors**: Liyuan Mei (100%)
+
+PR Newswire reports that over the next few years, there will be a 2.24 billion dollar increase in the global secondary ticket market. There are several well-established vendors in this market, and they compete with one another in pricing and differentiation. (PR Newswire, 2022) Ticketmaster is a prominent player in the global secondary ticket market and has a significant influence on industry norms. 
+In this market, the service fees constitute a major revenue stream for all the second ticket sale companies, including Ticketmaster. These fees (ranging from 6% to 12% of the ticket price) are a percentage of the ticket price and vary depending on the event type and the location of the event. However, customers are not initially aware of these fees on the ticket purchase page, instead, they become apparent later in the payment process. This profitable practice is called "drip pricing": the strategy of displaying slightly deceptive prices. According to the New York Times, StubHub found that consumers spent more than 20% more on tickets on their website in 2015 when they concealed required fees as opposed to when they displayed the full price upfront. (New York Times, 2021) However, Customers' discontent with "drip pricing" will also cause the market to shift in these conditions.
+Ticketmaster is now facing a challenge in striking a balance between customer satisfaction and profitability. A crucial question brought up by the state of "drip pricing" right now to Ticketmaster is: Can Ticketmaster maintain its revenue from service/transaction fees while adopting more transparent pricing strategies that align with customer preferences and regulatory requirements?
+
+
+### Literature Review
+
+**Authors**: Kyle Chipman(100%)
+
+The term “Drip Pricing” was initially coined by a 2012 Federal Trade Commission report, which described it as the e-commerce strategy of presenting lower, misleading prices to lure in consumers and later obligating them with new, undisclosed fees required to complete the transaction (Fletcher, 2012). This frustrates consumers, but consumers appear willing to pay undisclosed fees rather than spend additional time shopping for alternatives. This is reflected by a consumer sentiment survey from this same FTC report which observed that 75% of respondents objected to Drip Pricing, but only 44% indicated they would have bought elsewhere if the total price were disclosed upfront (ibid.). 
+
+Larger, recent studies of e-commerce consumer behavior specific to ticket purchasing demonstrate a persistent consumer willingness to pay end-of-transaction fees rather than spend time shopping for alternatives. A 2020 study simulating dripped versus aggregated cost consumer choice scenarios for airline tickets indicated that consumers are more likely to select a lower-price base option that is more expensive once surcharges are dripped even if they are permitted to restart and select the cheaper, cost-transparent alternative (Santana, 2020). Studies specific to concert ticket purchases include an analysis of millions of online consumer transactions on StubHub which noted that consumers exposed to a dripped 15% fee paid almost 21% more in aggregate than consumers shown upfront pricing (Blake, 2021). This indicates that the profitability of Drip Pricing includes the final fee payment as well as increased spending initiated by upfront perceptions of a bargain relative to cost transparent alternatives . 
+
+Following scrutiny from the Biden Administration, TicketMaster is under pressure to improve its disclosure of aggregate costs upfront (Renshaw 2023). However, reducing Drip Pricing in the United States’ largest ticket marketplace is only the first step for regulators; TicketMaster will continue to receive scrutiny for perceived fee gouging despite their upfront disclosure, particularly if there are few alternatives for ticket purchasing. This risk is supported by a robust eye-tracking study of consumers purchasing concert tickets which indicates that consumers still perceive price unfairness when high surcharges are disclosed upfront (Totzek & Jurgensen 2020). This is supported further by a 2020 study that mined text patterns in thousands of consumer reviews to indicate that consumers list the additional fee itself as the least positive experience of the concert fee sales service (Celuch, 2020).
+
+For TicketMaster, this literature indicates that increased scrutiny around Drip Pricing as well as intensifying consumer reaction to monetary fees is still disconnected from the observed profitability of dripping fees. This indicates that this consumer behavior literature must explore a middle ground: will consumers exhibit the same tendency to overcome end-of-transaction obstacles if given a choice between a conventional dripped, monetary fee as well as an alternative, dripped fee – in this experiment, watching a video advertisement – that TicketMaster can still monetize. 
+
+Given that PWC has estimated that the digital video ads in the U.S. generated revenue of nearly $45 billion in 2022 alone, this is a growing market that is readily monetizable by TicketMaster, especially given the increased scrutiny of explicit fee drip pricing (PWC 2023). Since TicketMaster facilitates nearly 70-80% of concert ticket purchases at commercial venues and is already well-versed in the business of selling website spot ads, TicketMaster’s business model is primed to seamlessly transition to monetizing end-of-transaction trailers as well (Sisario & Stevens, 2023). TicketMaster’s existing sponsor relationships will pay for consumer engagement with trailers that are contemplated in this experiment as obligatory for consumers choosing that option for transaction completion, as discussed further in our experiment design sections. 
+
+
+### Research Questions, Hypotheses, and Effects
+**Authors**: Liyuan Mei(70%); Yuxuan Zhang(30%)
+
+Research Questions:
+
+Research Question 1: During the ticket purchase process, is the ticket purchase rate (P) with transaction fee lower than the ticket purchase rate with no transaction fee?
+
+    Null Hypothesis: P (fee) ≥ P (no fee)
+    Alternative Hypothesis: P (fee) < P (no fee)
+    
+Research Question 2: During the ticket purchase process, is the ticket purchase rate (P) with transaction fee lower than the purchase rate with advertisements?
+
+    Null Hypothesis: P (fee) ≥ P(ads)
+    Alternative Hypothesis: P (fee) < P(ads)
+  
+Research Question 3: Does the length of the advertisement shown to the customer during the ticketing process have an impact on the purchase rate? 
+
+    Null Hypothesis: The length of the advertisement shown to the customer during the ticketing process has no impact on the purchase rate (β (ads of specific time) = 0)
+    Alternative Hypothesis: The length of the advertisement shown to the customer during the ticketing process does have an impact on the purchase rate (β (ads of specific time) ≠ 0)
+  
+Research Question 4: Are there any other demographic factors in the ticket purchasing process that can have an impact on the purchase rate?
+
+    Null Hypothesis: Demographic factors do not impact the purchase rate. 
+                    (β (age,gender,income level) = 0)
+    Alternative Hypothesis: Demographic factors do impact the purchase rate.
+                    (β (age,gender,income level) ≠ 0)
+
+
+
+### Importance of the Study and Social Impact
+
+**Authors**: Kyle Chipman(100%)
+
+This study is motivated by the increasing social and political scrutiny of TicketMaster’s fee-based drip pricing model - and provides a seamless transition to a marketing product, digital video ads, that are highly familiar to both TicketMaster as well as its consumers. This provides TicketMaster with a potential business opportunity to monetize consumers’ tendency to endure end-of-transaction obstacles to complete purchases in a manner that is less direct. In terms of social impact, the degree of negativity surrounding TicketMaster’s fee practices implies that an improved end-of-transaction experience for consumers, without materially sacrificing TicketMaster’s fee economics, is a win-win for both parties - and allows TicketMaster’s a route towards both improved profitability and brand strength. Given that no ticketing companies appear to have fully integrated this fee-generation tool, TicketMaster has an opportunity to be a first-mover and therefore improve its dominant market share. 
+
+
+### Research Plan
+**Authors**: Jintong He (40%); Sherry Liang (60%)
+
+#### Population of Interest
+
+**Authors**: Jintong He (100%)
+
+Our research will focus on all Ticketmaster users, including both existing customers who have made purchases and potential customers who have browsed but not yet made purchases on our website. The sample will include Ticketmaster users from the whole North American region where Ticketmaster operates. The sample will also include users of different genders and income levels aged 20-55. However, the sample excludes the users who are not in the target age group and users who will not consent to the use of their data for our research purposes.
+
+
+#### Sample Selection
+
+**Authors**: Jintong He (100%)
+
+For this study, we will employ stratified random sampling. We will divide the population into different subgroups based on their purchasing frequency on Ticketmaster (which is recorded by Ticketmaster's backend database) in the past year to ensure that both the control group and the treatment group have a similar proportion of users at each purchasing frequency level. Because high-frequency buyers might be more excited about taking part in a test than low-frequency users, we can have a more balanced representation and lower the risks of bias that the sample is over-represented by high-frequency buyers by using this sampling methodology. To remove the confounding aspect of user activity—which could, in part, reflect a user's inclination to purchase tickets—we want the sample to contain users with varying frequency of purchases as well as users with varying degrees of activity. Excluding non-consenting users, on the other hand, enhances the ethical integrity of the study and probably improves the quality of the data as included users are more likely to provide accurate information. Stratified random sampling is sensible for this study because it ensures that Ticketmaster users of different purchasing frequencies, from those who purchase tickets frequently to those who do so rarely, are represented in our sample. For this experiment, we aim to gather 1239 pieces of data for the control group and 1239 pieces of data for treatment group 1 and 1239 pieces of data for treatment group 2 respectively. (In particular, treatment group 2 is divided into three subgroups based on the length of ads, and we aim to collect 413 pieces of data for each subgroup.)
+
+#### Operational Procedures
+
+**Authors**: Sherry Liang (100%)
+
+The scope of the experiment is limited to Ticketmaster’s official website and application in North America. Subject recruitment will take place online, by sending experiment invitations to web and app users to obtain a sufficient number of participants. Participants will not be required to have prior experience purchasing tickets on Ticketmaster so that our sample can cover as many users’ representative groups as possible. 
+
+During the experimental data collection period, users can use the Ticketmaster website and app to browse tickets as usual. When the user selects their favorite tickets and clicks the “checkout” button to purchase, the system automatically pops up the experimental invitation information as below: 
+	
+  “Thank you for choosing Ticketmaster. 
+  We are currently conducting an optional experiment to improve the quality of our service. If you volunteer to participate, you will have the opportunity to receive a service fee reduction when purchasing tickets. You may also be required to watch an advertisement for a specified length of time to receive a service fee exemption. Would you like to participate in the experiment?” 
+
+We believe that the temptation of reducing service fees can attract users to participate in our experiment to a certain extent. When users choose to participate in the experiment, we will apply stratified sampling to randomly assign them to the control group, which won’t need to pay any service fee or see advertisements to get the ticket based on their purchasing/browsing frequency (i.e., subjects in the control group will buy tickets at face value without extra transaction charges). Subjects will also be assigned to two treatment groups using the same sampling method. Treatment Group 1’s participants will not be disturbed by any special circumstances and can purchase tickets normally using Ticketmaster’s drip pricing strategy. While participants in the second Treatment Group will be required to watch a specified time of advertisement. Ads of three different durations (i.e. 30s, 60s, 90s) will be randomly displayed to these subjects. 
+
+Participants have to complete their ticket-purchasing decisions in three groups. Everyone can choose to continue with their purchase or abandon the purchase and exit midway. These choices will be recorded as experimental data.
+
+
+#### Brief Schedule
+
+**Authors**: Jintong He (100%)
+
+Phases: 
+  Phase 1: Design of the online test and survey
+  Phase 2: Recruitment of test users
+  Phase 3: Data Collection
+  Phase 4: Analysis of the results and reporting	
+
+Timetable:
+  February 1 - February 15: 		Design of the online test and survey
+  February 16 - February 28: 		Recruitment of test users
+  March 1 - August 31: 			Data Collection
+  September 1 - September 30: 	Analysis of the results and reporting
+
+By setting the timeline from February 1 to August 31, we can cover a wide range of events such as spring holidays, summer concerts, and sports events. This ensures that the data collection phase captures high-activity periods, which are crucial for understanding Ticketmaster consumer behavior in peak times. On the other hand, by not including year-end holiday seasons including Thanksgiving and Christmas, the study avoids a period that might have atypical consumer behavior due to the holidays, which could skew the understanding of consumer behavior patterns.
+
+#### Data Collection
+
+**Authors**: Sherry Liang (100%)
+
+The study’s data were initially decided on collecting through anonymous questionnaires. However, this form may incur two problems. First, it is difficult for a questionnaire to fully simulate the users’ true mentality and reaction when seeing an advertisement during the ticket purchase process. Second, the questionnaire sets the impact of the drip pricing strategy on users as a prerequisite and cannot simulate the user's true purchasing tendency under the drip pricing strategy because the questions will likely imply that watching ads can save costs. 
+
+Based on the above two concerns, we instead use online web pages and in-app message prompts to conduct an experiment during the actual purchasing process for users. It could be beneficial to reduce manual intervention and ensure the consistency of the manner for experimental data collection as much as possible. 
+
+The trigger for the invitation to the experiment would happen when users click the “checkout” button. Once they agree to participate in the experiment, the experimental data collection process begins. At the beginning of the experiment, participants would fill in their demographic information using a form, including their age, gender, and income level. Then the page jumps to the ticket purchase interface and implements the corresponding treatment. After the final price (with or without service fee based on different treatments) is displayed on the checkout interface, users will be asked to confirm their “Buy” or “Not Buy” decision, Participants may choose to quit the ticket purchasing process at any time, and those data would be recorded as “Not Buy” as well. 
+
+
+#### Data Security
+
+**Authors**: Sherry Liang (100%)
+
+Since the experiment will be conducted directly on Ticketmaster's official website, we will first follow Ticketmaster’s existing privacy policy regarding data collection. No sensitive information about user payment methods will be collected during the experiment. The permission for experimental data collection should be confirmed again by users before they agree to join the test. In the invitation message to participate in the experiment, users will be informed that some personal data will be collected only for research purposes. When supplying demographic information, like age and personal income level, consumers will select among intervals instead of using specific numbers to protect the privacy of the subjects to a greater extent. 
+
+We will adhere to data minimization and anonymization principles during the experimental data analysis phase to safeguard the security of users' personal data on the Ticketmaster platform. We will only share demographic variable information and behavioral information that is necessary for the research with the analysis team
+
+#### Variables
+
+##### Outcomes (Dependent Variables)
+**Authors**: Sherry Liang (100%)
+
+The metric we are interested in is the proportion of users who successfully purchased tickets in each group. This is a derived variable from the binary outcomes of a “buy” or “not buy” decision. After participants choose to pay at the “dripping” price or watch different lengths of advertisements, successfully paid and completed transactions will be calculated as the purchase conversion rate of the corresponding settlement method. The participant's purchasing the outcome will be recorded in binary form. Successful payment transactions will be recorded as 1, while abandoned purchases or unsuccessful payments will be recorded as 0.
+
+##### Treatments (Independent Variables)
+**Authors**: Sherry Liang (100%)
+
+There are two major treatments imposed on subjects during the experiment period.
+
+  Treatment 1: Ticket pricing and trading with the dripping pricing strategy
+
+Participants assigned to the first treatment group will be asked to purchase the ticket at the total price, which is higher than the face value under the existing drip pricing strategy. The participant won’t obtain any service fee reduction, and the buying decision should be made once participants are exposed to the final price. We could compare the successful purchasing rate with one of the control groups, and we suppose that adding the cost of a ticket by adopting the dripping price strategy would negatively impact users’ intentions of purchasing.
+
+  Treatment 2: Save fees over ticket face value under drip pricing strategies by watching ads 
+Participants assigned to the second treatment group will be required to watch ads for a specific length of time. We will randomly play a 30-second, 60-second, or 90-second ad to test whether ads of different lengths have an impact on users’ willingness to buy tickets, especially when they know that watching the advertisement can help reduce ticket prices. We initially hypothesized that watching longer ads would reduce users’ desire to purchase tickets, even if the ads could help them save purchasing costs.
+
+
+##### Other Variables
+**Authors**: Sherry Liang (100%)
+
+The following demographic information of subjects will be used as additional variables to analyze the impact on purchase rates under different treatment scenarios (Research question 4):
+
+  Age – Interval scales; Subject’s age
+  Age information will be encoded to 3 levels of scales, totally ranging from 20 to 55. Based on ticketmaster.com Website Traffic Demographics analysis, 85% of current visitors come from this age group.
+
+  Gender – binary variable; User’s gender
+  
+  Income Level – Interval scales; User’s annual income
+Annually Income level information will be encoded to 4 levels of scales, from 40,000 to over 100,000. 
+
+
+
+
+### Statistical Analysis Plan  
+
+**Authors **: Yuxuan Zhang 50%(q1 q2) 
+###Analysis Plan for Q1 and Q2
+  After we collected data, we performed data cleaning for analysis. We dropped the missing data, such as who do not finish the survey, to get the final results. The result simulate in the r file is the data we have cleaned. 
+
+  In our first question, we made a general investigation of whether there is a significant difference of purchase rate between the group who pay the service fee and groups who do not pay the fee. We did two sample proportion tests to make analysis. We repeat the simulation for 1000 times and generate the result in the table.
+
+  In our second question, we studied whether the purchase rate of the group who watch adds is significant greater than the purchase rate of the group who pay the service fee. In this case, we combine three treatment groups that has different length of ads as one treatment group, which is the group watch ads. We then did two sample proportion tests to make analysis. We repeat the simulation for 1000 times and generate the result in the table.
+  ### Statistical Analysis Plan  
+
+**Authors **: Yuxuan Liu 50%(q3 q4)
+###Analysis Plan for Q3 and Q4
+Question 3 is to study the impact of advertising time on the purchase rate, and question 4 is to study the factors such as income and age of customers' personal features. Because the personal information involved in the fourth question is relatively sensitive, we cannot collect specific information, so the data we collect is segmented. age is the age group, income is the income group, and our dependent variable is the purchase rate, which is a binary variable. So I decided to do a logistic regression.
+  
+
+
+
+
+### Sample Size and Statistical Power
+
+**Authors **: Yuxuan Liu 50% 
+**Authors ** Yuxuan Zhang 50% 
+    In our research, we use two-sample proportion test to do the first research question. To calculate the sample size in each group, we need statical power, significant level, and effect size. We use 0.8 as statical power and 5% as significance level, which follows many previous literatures which that provide evidence in behavior science (Cohen., 2013). 10% of difference is considered as significant in the first and second question, which is based on previous literature and on our consideration for the feasibility to collect enough sample. Based on those assumptions, we then use R to calculate the sample size, and we found that 1237 in each group is the idea sample size in each group to make analysis. 
+    We also calculate the sample size for the logistic model in the third and fourth question. and we found that the sample size needed in the third and fourth question is 72, which is smaller than in the first question. So we use the sample size in the first question. The sample size is actionable because the TicketMaster has million users, we can collect enough data for analysis. 
+
+
+
+
+### Possible Recommendations
+
+**Authors **: Yuxuan Liu 50% 
+**Authors ** Yuxuan Zhang 50% 
+
+#### Recommendations for Q1
+For the first scenario where there is an effect, I recommend Ticketmaster consider other method such as using adds to both increase the purchase rate generate more revenue. For the second case where there is no effect,  there is no relationship betIen paying the fee and purchase rate, I recommend Ticketmaster to 
+
+#### Recommendation for Q2
+For the first scenario where there is an effect, I recommend Ticketmaster consider using adds to both increase the purchase rate generate more revenue. For the second case where there is no effect, I recommend Ticketmaster to consider other methods to generate better ourcome.
+
+
+#### Recommendation for Q3
+  When there is an effect, from the perspective of Model1, the less advertising time, the higher the customer purchase rate. Therefore, under the premise of advertising, 30s advertising is the best choice, which can achieve a balance between customer purchase rate and website profit.
+  When there is no effect,from Model1a, advertising time has no relationship with the purchase rate of customers, and the advertising time is not significant in the regression results, so it is not recommended to use advertising to replace the drip pricing strategy.
+
+#### Recommendation for Q4：
+When there is an effect,According to our model, we can see that the main consumers of ticketmaster are 20-30 years old. The higher the income, the higher the probability of buying tickets. In this case, the longer the advertisement duration, the lower the probability of buying tickets. Therefore, the advertising time in 30s is the most appropriate.
+
+When there is no effect,from Model3a, advertising time has no relationship with the purchase rate of customers, and the advertising time is not significant in the regression results, and the income and age of personal feature do not provide a significant result, so it is not recommended to use advertising to replace the drip pricing strategy, and the income and age of an individual do not affect his purchase rate.
+
+
+
+
+
+
+### Limitations and Uncertainties
+
+**Authors**: Liyuan Mei (100%)
+
+In this research, we examined Ticketmaster's titration pricing strategy using a stratified sample approach. But there are certain restrictions on the technique itself. Correctly executing hierarchical classification in our experiments is difficult, and inaccurate or unreasonable classification might bias the study's overall findings. The results may not be accurate if we stratify based solely on one attribute (e.g., age or income level), ignoring other factors that could affect purchasing decisions (e.g., cultural background or personal interest in activities). Therefore, when applying stratified sampling in this experiment, several factors must be taken into account to make sure that each strata has precise and reasonable differentiation standards, and that the differentiation is carried out carefully to minimize the possibility of classification errors and research bias.
+
+Furthermore, when analyzing the effects of Ticketmaster's drip pricing strategy, it's likely that this study ignored that the market is dynamic, and customer preference is changing. The secondary ticket sales industry may be influenced by elements such as social media usage, technological advancements, and consumer behavior in this rapidly changing digital market environment. In addition to this, another constraint that must be taken into consideration is the constantly changing dynamics of the competition. Even though Ticketmaster has emerged as a major player in the ticketing industry, it still has competition from many rivals, including other ticketing platforms like StubHub. Ticketmaster's pricing strategy and market share may be influenced by the competitors' sales strategies and market positions. Therefore, our study may not fully capture the potential impact of these factors on Ticketmaster's drip pricing strategy due to the inadequate consideration of the dynamics of the market, customers, and competitive environment when conducting the research and analyzing the collected data.
+
+
+
+
+## Part 2:  Simulated Studies
+
+**Yuxuan Zhang 40% **
+**Yuxuan Liu 60% **
+
+###Data Generation for no effect and have effect
+**Yuxuan Liu 70% **
+```{r }
+# If your research questions are part of a single experiment, then simulate your data here.
+library(data.table)
+library(dplyr)
+library(pwr)
+library(caret)
+library(calibrateBinary)
+library(pROC)
+
+```
+
+  The data generation is based on such a common sense: under the premise of other conditions, such as income, age, etc., the longer the participants watch the advertisement, the more they will hate the ticket-buying website, and gradually reduce their patience, so their probability of buying tickets will also decrease. Therefore, in the code where I generate the data, when the advertising time = 0, it means that this is the control group, and the customers who are randomly assigned to this group can buy tickets without paying the handling fee or watching the ads. Therefore, in this situation, the probability of customers buying tickets is the highest. With the increase of advertising time, customers' patience will be worn out because of too long advertising, so their probability of buying tickets will gradually decrease. Under the premise of constant advertising time and income, the older the customer, the lower the probability of using the ticket purchasing website to buy tickets. The older you get, the more you distrust technology. We know from some studies, personally held values to do with the desirability of technology, wider concerns regarding its impact on society,  and "fears of getting things wrong when using software are also significant factors holding back technology use among  older adults“[1].  At the same time, we can see this from some video social platforms, such as Tiktok, a very popular APP, whose main audience is young people aged between 18 and 29, while middle-aged people over 30 tend to gather in Youtube, a video website with a long history. Older people, on the other hand, are more likely to get their information directly from television. So for the act of buying e-tickets on ticketing websites, using e-tickets to attend concerts and exhibitions. It's hard for the middle-aged and the elderly to accept. Therefore, in our data generation, the older the customer, the lower the probability of buying on the ticketing site. In the case of AD breaks and age determination, the higher the income, the more willing customers will be to spend money to buy tickets on the ticket buying website. The basic human need is food, water, air, and shelter to survive. This is a basic human need for survival. After people's basic survival needs are satisfied, people will begin to pursue physical and spiritual enjoyment, so when people have enough money to meet their survival needs, they start to use the rest of the money to meet their spiritual pursuit. Pursue art, music, etc. So in this case, the higher the person's income, the higher the probability that he/she will buy tickets on the ticket-buying website. This is the source and reason for the purchase probability we set when we generate the data.
+  In my data, I set four kinds of advertising time: 0s, 30s, 60s, 90s. And three age groups: 20-30, 30-40, 40-55, and four income segments: 40,000-59999, 60,000-74999, 75,000-99999, > 100,000. So I can combine a total of 4*3*4 = 48 cases, which are represented in my code as a list named "conditions". In order to reflect the difference between Effect data and No Effect data, the probability of No Effect data is all the same, and it is the average purchase rate of the group with 0 advertising time in Effect data, that is, the Control group. This is because my Effect data assumes that a decrease in wages, an increase in age, and an increase in advertising time all reduce the likelihood that a customer will buy a ticket. The assumption of No Effect data is that the three variables, namely, the decrease of salary, the increase of age and the increase of advertising time, have nothing to do with the purchasing probability of customers. Therefore, the purchasing probability of No Effect data comes from the mean value of contorl group. At the same time, I generated two samples of the same capacity, sample one for training and sample two for testing my regression model.
+
+**Yuxuan Zhang 30% **
+  After generating the data for the control group and the treatment group that watch adds, I generate the data for the treatment group that that need to pay the service fee to make the purchase. Because we don’t investigate the gender, age and income within the second treatment group in this question , I just randomly generate those variables. As second treatment group do not watch adds, I use NA to indicate in the “AdTime” column. Because there is  no effect in this situation, we set a similar purchase rate in the treatment group that watch add the group that pay the fee.I use the same method to generate the data in the second situation. As there is an effect, I assign the probably of purchase rate who pay the fee much lower than the group who watch adds.
+
+
+```{r have no effect simulation}
+# Data Generation for no effect
+# data for control and treatment that watch adds
+library(data.table)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(data.table)
+library(dplyr)
+library(pwr)
+library(caret)
+library(calibrateBinary)
+library(pROC)
+generate_datanoeffect <- function() {
+  # Set specific counts for Adtime values
+  counts <- c(`0` = 1239, `30` = 413, `60` = 413, `90` = 413)
+  n <- sum(counts)
+  
+  # Generate Adtime with specified counts
+  adtime_values <- rep(names(counts), times = counts)
+  
+  # Generate the rest of the data
+  data <- data.frame(
+    Group = character(n),
+    Adtime = adtime_values,
+     PorchaseProp = sample(c(0, 1), n, replace = TRUE),
+    Age = sample(c("20-30", "30-40", "40-55"), n, replace = TRUE),
+    Gender = sample(c("Male", "Female"), n, replace = TRUE),
+    Income = sample(c("40000-59999", "60000-74999", "75000-99999", ">100000"), n, replace = TRUE)
+  )
+  
+  # Assign Group based on Adtime
+  data$Group <- ifelse(data$Adtime == 0, "Control", "Treatment")
+  conditions <- list(
+    list(Adtime = 30, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = "75000-99999",  PorchasePropProb =0.65),
+    list(Adtime = 0, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income ="75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income =">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65)
+    
+    
+  )
+  
+  # Adjust  PorchaseProp probability under specific conditions
+  for (i in 1:nrow(data)) {
+    for (cond in conditions) {
+      if (data$Adtime[i] == cond$Adtime && data$Age[i] == cond$Age && data$Income[i] == cond$Income) {
+        data$ PorchaseProp[i] <- sample(c(0, 1), 1, prob = c(1 - cond$ PorchasePropProb, cond$ PorchasePropProb))
+        break
+      }
+    }
+  }
+  
+  return(data)
+}
+set.seed(200)
+noeffecttrain <- generate_datanoeffect()
+set.seed(400)
+noeffecttest <- generate_datanoeffect()
+set.seed(200)
+noeffect<-generate_datanoeffect()
+
+
+n1=1239
+fee_noeffect1 <- function() {
+  fee_data2 <- data.frame(
+    Group = "Treatment2",
+    PorchaseProp = sample(c(0, 1), n1, replace = TRUE, prob = c(0.35, 0.65)),
+    Age = sample(c("20-30", "30-40", "40-55"), n1, replace = TRUE),
+    Gender = sample(c("Male", "Female"), n1, replace = TRUE),
+    Income = sample(c("40000-59999", "60000-74999", "75000-99999", ">100000"), n1, replace = TRUE),
+    Adtime=NA
+  )
+  return(fee_data2)}
+
+```
+
+```{r Have effect data genearate }
+set.seed(100)
+fee_noeffect<- fee_noeffect1()
+no_all<-bind_rows(noeffect, fee_noeffect)
+
+table(no_all)
+no_all
+
+```
+
+
+```{r Have effect data}
+# If your research questions are part of a single experiment, then simulate your data here.
+##Data Generate (Effect:Adtime will have negative influence on customers' purchase choose)
+##Data Generate (Effect:Adtime will have negative influence on customers' purchase choose)
+generate_dataeffect <- function() {
+  # Set specific counts for Adtime values
+  counts <- c(`0` = 1239, `30` = 413, `60` = 413, `90` = 413)
+  n <- sum(counts)
+  
+  # Generate Adtime with specified counts
+  adtime_values <- rep(names(counts), times = counts)
+  
+  # Generate the rest of the data
+  data <- data.frame(
+    Group = character(n),
+    Adtime = adtime_values,
+    PorchaseProp = sample(c(0, 1), n, replace = TRUE),
+    Age = sample(c("20-30", "30-40", "40-55"), n, replace = TRUE),
+    Gender = sample(c("Male", "Female"), n, replace = TRUE),
+    Income = sample(c("40000-59999", "60000-74999", "75000-99999", ">100000"), n, replace = TRUE)
+  )
+  
+  # Assign Group based on Adtime
+  data$Group <- ifelse(data$Adtime == 0, "Control", "Treatment")
+  conditions <- list(
+    list(Adtime = 30, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.7),
+    list(Adtime = 30, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.6),
+    list(Adtime = 30, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.5),
+    list(Adtime = 0, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.8),
+    list(Adtime = 0, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.7),
+    list(Adtime = 0, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.6),
+    list(Adtime = 60, Age = "20-30", Income ="75000-99999",  PorchasePropProb = 0.6),
+    list(Adtime = 60, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.5),
+    list(Adtime = 90, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.3),
+    list(Adtime = 30, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.6),
+    list(Adtime = 30, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.5),
+    list(Adtime = 30, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.4),
+    list(Adtime = 0, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.7),
+    list(Adtime = 0, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.6),
+    list(Adtime = 0, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.4),
+    list(Adtime = 60, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.3),
+    list(Adtime = 90, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.3),
+    list(Adtime = 90, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.2),
+    list(Adtime = 30, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.5),
+    list(Adtime = 30, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.4),
+    list(Adtime = 30, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.3),
+    list(Adtime = 0, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.6),
+    list(Adtime = 0, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.5),
+    list(Adtime = 0, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.4),
+    list(Adtime = 60, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.4),
+    list(Adtime = 60, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.3),
+    list(Adtime = 60, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.2),
+    list(Adtime = 90, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.3),
+    list(Adtime = 90, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.2),
+    list(Adtime = 90, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.1),
+    list(Adtime = 30, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.8),
+    list(Adtime = 30, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.7),
+    list(Adtime = 30, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.6),
+    list(Adtime = 0, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.9),
+    list(Adtime = 0, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.8),
+    list(Adtime = 0, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.7),
+    list(Adtime = 60, Age = "20-30", Income =">100000",  PorchasePropProb = 0.6),
+    list(Adtime = 60, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.5),
+    list(Adtime = 90, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.5),
+    list(Adtime = 90, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.3)
+    
+    
+  )
+  
+  # Adjust  PorchaseProp probability under specific conditions
+  for (i in 1:nrow(data)) {
+    for (cond in conditions) {
+      if (data$Adtime[i] == cond$Adtime && data$Age[i] == cond$Age && data$Income[i] == cond$Income) {
+        data$ PorchaseProp[i] <- sample(c(0, 1), 1, prob = c(1 - cond$ PorchasePropProb, cond$ PorchasePropProb))
+        break
+      }
+    }
+  }
+  
+  return(data)
+}
+set.seed(100)
+effecttrain <- generate_dataeffect()
+set.seed(200)
+effecttest <- generate_dataeffect()
+set.seed(100)
+effecttrain <- generate_dataeffect()
+set.seed(200)
+effecttest <- generate_dataeffect()
+
+# data for fee
+set.seed(100)
+effecttrain <- generate_dataeffect()
+set.seed(100)
+effect <- generate_dataeffect()
+set.seed(200)
+effecttest <- generate_dataeffect()
+
+## data for the fee group
+n1=1239
+fee_effect <- function() {
+  fee_data <- data.frame(
+    Group = "Treatment2",
+    PorchaseProp = sample(c(0, 1), n1, replace = TRUE, prob = c(0.7, 0.3)),
+    Age = sample(c("20-30", "30-40", "40-55"), n1, replace = TRUE),
+    Gender = sample(c("Male", "Female"), n1, replace = TRUE),
+    Income = sample(c("40000-59999", "60000-74999", "75000-99999", ">100000"), n1, replace = TRUE),
+    Adtime=NA
+  )
+  return(fee_data)}
+
+set.seed(100)
+fee<- fee_effect()
+
+
+#combine
+all<-bind_rows(effect, fee)
+
+all
+```
+
+
+
+### Research Question 1:
+
+#### Scenario 1:  No Effect
+
+**Yuxuan Zhang 100% ** 
+
+
+##### Do the proportion test one time and show result 
+  I then deal with the data for the proportion analysis. I use a function to create a table to present the simulation data in control and treatment group that pay the fee. I count the people who make the purchase and the total number of people. I found that the effect is much smaller than 10% and p value is much higher than 5%, which indicate that there is no significant difference, which is consistent with our assumption. 
+```{r q1_no effect_onetime}
+#Q1 no effect onetime
+
+process2<- function(no_all) {
+  process2 <-no_all|>group_by(Group)|>summarise(purchase_total = sum(PorchaseProp == 1), total_count = n())
+  return(process2)}
+
+table2<- process2(no_all)
+table2_add<-table2[-3,]
+table2_fee<-table2[-2,]
+add_fee2<-table2[-1,]
+
+test_fee2 <- prop.test(x= table2_fee$purchase_total, n = table2_fee$total_count, alternative = "greater")
+test_fee2
+```
+
+##### no effect for 1000 times and analysis
+  For simulating for 1000 times, I first create the data frame for the result for each simulation. I put iteration, which is times of simulation, p value which is the statical result of each simulation, the 95% confidence interval which can tell the interval of the effect in 95%, the effect which is the difference of percentage in two groups. The mean effect is the mean of the difference in percentage rate from 1000 times of simulation. To calculate the 95% of interval of the mean effect, I first found the standard error for 1000 times of simulation, that is the standard deviation of the effect in 1000 times of simulation divide the square root of 1000. Then I use the standard error, the test statistic for 95% confidence interval for one tail test, which is 1.65 and the mean effect size to get the result. I find the mean effect is 3%, and the 95% of interval of the mean effect in this scenario although do not contiain 0 but all less than 10%, which is consistent to our assumption that there is no effect in this case. As there is no effect betIen two groups, the true negative rate is the proportion of p larger than 0.05. I found the true negative rate is 1 and false positive rate in this case is 0. This indicate that in 1000 times experiment, I correctly predict all the negative condition. I can’t reject the null hypothesis, so the purchase rate of group who pay the fee is not significant less than the purchase rate of the group do not pay the fee.
+
+
+```{r q1_no effect_simulation}
+#Q1 no effect 1000 time
+set.seed(100)
+experients=1000
+result2_fee1000 <- data.frame(iteration = integer(experients),
+                             p_value = numeric(experients),
+                             effect=numeric(experients))
+for (i in 1:experients) {
+  add2_1000 <- generate_datanoeffect()
+  fee2_1000<-fee_noeffect1()
+  all2_1000<-bind_rows(add2_1000, fee2_1000)
+  table2_1000 <- process2(all2_1000)
+  table2_fee1000<-table2_1000[-2,]
+  test2_fee1000 <- prop.test(x = table2_fee1000$purchase_total, n = table2_fee1000$total_count, conf.level = 0.95, alternative = "greater")
+  effect2_fee1000 <- test2_fee1000$estimate[2] - test2_fee1000$estimate[1]
+  result2_fee1000[i, ] <- c(i, test2_fee1000$p.value, effect2_fee1000)}
+
+
+True_nagative<- sum(result2_fee1000$p_value>0.05)/nrow(result2_fee1000)
+
+mean_effect2=mean(result2_fee1000$effect)
+
+se_effect2 <- sd(result2_fee1000$effect) / sqrt(nrow(result2_fee1000))
+critical_value <- qnorm(0.95) 
+lower2 <- mean_effect2 - critical_value * se_effect2
+upper2<- mean_effect2+ critical_value * se_effect2
+
+
+```
+
+
+
+#### Scenario 2:  An Expected Effect
+
+**Yuxuan Zhang 100% ** 
+
+##### Do the proportion test one time and show result 
+ Using the same method as before, I do the proportion test.I do the proportion test and I found that the purchase rate in the treatment group that pay the fee is 30% less than the purchase rate in the control group, and the p value is less than 5%, which is consistent with our assumption that there is effect in this case.
+
+```{r effect one time }
+# deal with data
+process<- function(all) {
+  process <-all|>group_by(Group)|>summarise(purchase_total = sum(PorchaseProp == 1), total_count = n())
+  return(process)}
+
+table<- process(all)
+table_add<-table[-3,]
+table_fee<-table[-2,]
+add_fee<-table[-1,]
+# do the test
+test_fee <- prop.test(x= table_fee$purchase_total, n = table_fee$total_count, alternative = "greater")
+test_fee
+
+```
+
+##### effect for 1000 times and analysis
+  I use the same method to simulate 1000 times and get the final result for scenarios 2. I found that the absolute value of mean effect is larger than 30%, much larger than the expect effect size, the absolute value of 95% of interval of the mean effect is all larger than 10% and do not contain 0 which is also algin with our assumption in this case. Then I will calculate the true positive rate and false negative. In this scenario, as I assume there is an effect, the true positive rate is the proportion of p smaller than 0.05. I found that the true positive rate is 1, the false negative is 0. This indicate that I correctly predict all the actual positive result, and this also due to I assign too much difference of the purchase rate betIen the control and treatment group. I reject the null hypothesis, and I accept the alternative hypothesis that the purchase rate of group who pay the fee is significant less than the purchase rate of the group do not pay the fee.
+  
+```{r effect 1000 times}
+set.seed(100)
+experients=1000
+result_fee1000 <- data.frame(iteration = integer(experients),
+                             p_value = numeric(experients),
+                             effect=numeric(experients))
+for (i in 1:experients) {
+  add_1000 <- generate_dataeffect()
+  fee_1000<-fee_effect()
+  all_1000<-bind_rows(add_1000, fee_1000)
+  table1000 <- process(all_1000)
+  table_fee1000<-table1000[-2,]
+  test_fee1000 <- prop.test(x = table_fee1000$purchase_total, n = table_fee1000$total_count, conf.level = 0.95, alternative = "greater")
+  effect_fee1000 <- test_fee1000$estimate[2] - test_fee1000$estimate[1]
+  result_fee1000[i, ] <- c(i, test_fee1000$p.value, effect_fee1000)}
+
+True_positive<- sum(result_fee1000$p_value<=0.05)/nrow(result_fee1000)
+
+mean_effect=mean(result_fee1000$effect)
+# confidence interval
+se_effect <- sd(result_fee1000$effect) / sqrt(nrow(result_fee1000))
+critical_value <- qnorm(0.95) 
+lower <- mean_effect - critical_value * se_effect
+upper<- mean_effect + critical_value * se_effect
+```
+
+
+
+### Research Question 2:
+
+#### Scenario 1:  No Effect
+**Yuxuan Zhang 100% ** 
+
+##### Do the proportion test one time and show result 
+The second research question, I further studied whether the purchase rate of group that watch adds is significantly greater than the purchase rate of the group who pay the service fee. I also use the proportion test, the result shows that the purchase rate in the group that watch adds is significantly less than the group that pay the fee, and all the p value is larger than 5%.
+
+```{r q2 no effect one time}
+
+table_add_fee2<-table2[-1,]
+test2 <- prop.test(x= table_add_fee2$purchase_total, n = table_add_fee2$total_count, alternative = "greater")
+test2
+
+```
+
+##### simulate 1000 times and analysis
+ I use the same method to repeat the simulation 1000 times and generate final results. I find that the difference of purchase rate betIen two groups is smaller than 5%, and the absolute value of 95% interval contain 0, but all less than 10% , which support our assumption in this case. The true negative rate is 94.9% and false positive rate is 5.1% . As a result, I can’t not reject the null hypothesis, so the purchase rate of group who watch adds is not significant greater than the purchase rate of the group who pay the service fee.
+ 
+```{r Q2 no effect 1000 times}
+
+set.seed(100)
+experients=1000
+result3_fee1000 <- data.frame(iteration = integer(experients),
+                               p_value = numeric(experients),
+                               effect=numeric(experients))
+for (i in 1:experients) {
+  add2_1000 <- generate_datanoeffect()
+  fee2_1000<- fee_noeffect1()
+  all2_1000<-bind_rows(add2_1000, fee2_1000)
+  table2_1000 <- process(all2_1000)
+  table3_fee1000<-table2_1000[-1,]
+  test3_fee1000 <- prop.test(x = table3_fee1000$purchase_total, n = table3_fee1000$total_count, conf.level = 0.95, alternative = "greater")
+  effect3_fee1000 <- test3_fee1000$estimate[2] - test3_fee1000$estimate[1]
+  result3_fee1000[i, ] <- c(i, test3_fee1000$p.value, effect3_fee1000)}
+
+True_nagative2<- sum(result3_fee1000$p_value>0.05)/nrow(result3_fee1000)
+
+mean_effect4=mean(result3_fee1000$effect)
+# confidence interval
+se_effect4 <- sd(result3_fee1000$effect) / sqrt(nrow(result3_fee1000))
+critical_value <- qnorm(0.95) 
+lower4 <- mean_effect4 - critical_value * se_effect4
+upper4<- mean_effect4+ critical_value * se_effect4
+```
+
+
+
+#### Scenario 2:  An Expected Effect
+
+**Yuxuan Zhang 100% ** 
+
+
+##### Do the proportion test one time and show result 
+ In this case, the proportion test result shows that the purchase rate in the group that watch adds is significantly greater than the group that pay the fee, and all the p value is less than 5%. 
+```{r q2 have effect one time }
+
+test_add <- prop.test(x= add_fee$purchase_total, n = add_fee$total_count, alternative = "greater")
+test_add
+```
+
+##### simulate 1000 times and analysis
+I use the same method to repeat the simulation 1000 times and generate final results. I find that the absolute value of mean effect in this case is 14% which is larger than 10%, and the absolute value of 95% of interval of the mean effect in this scenario all larger than 10% ,do not include 0, which is align our assumption that there is an effect in this case. I found that the true positive rate is 1, the false negative is 0. This indicate that I correctly predict all the actual positive result.  Therefore, I reject the null hypothesis, and I accept the alternative hypothesis that the purchase rate of group who watch adds is significant greater than the purchase rate of the group who pay the service fee
+
+```{r q2 effect 1000 time}
+experients=1000
+result_1000 <- data.frame(iteration = integer(experients),
+                         p_value = numeric(experients),
+                         effect=numeric(experients))
+set.seed(100)
+for (i in 1:experients) {
+  add_1000 <- generate_dataeffect()
+  fee_1000<-fee_effect()
+  all_1000<-bind_rows(add_1000, fee_1000)
+  table1000 <- process(all_1000)
+  add_fee1000<-table1000[-1,]
+  test_1000 <- prop.test(x = add_fee1000$purchase_total, n = add_fee1000$total_count, conf.level = 0.95, alternative = "greater")
+  effect_1000 <- test_1000$estimate[2] - test_1000$estimate[1]
+  result_1000[i, ] <- c(i, test_1000$p.value, effect_1000)}
+
+True_positive3<- sum(result_1000$p_value<=0.05)/nrow(result_1000)
+
+mean_effect3=mean(result_1000$effect)
+# confidence interval
+se_effect3 <- sd(result_1000$effect) / sqrt(nrow(result_1000))
+critical_value <- qnorm(0.95) 
+lower3 <- mean_effect3 - critical_value * se_effect3
+upper3 <- mean_effect3 + critical_value * se_effect3
+
+```
+
+### Research Question 3:
+
+#### Scenario 1:  No Effect
+
+**Authors (Names and Percentages)**: Yuxuan Liu 100%
+
+
+##### Simulation
+
+```{r q3_scenario1_simulation__1}
+generate_datanoeffect <- function() {
+  # Set specific counts for Adtime values
+  counts <- c(`0` = 1239, `30` = 413, `60` = 413, `90` = 413)
+  n <- sum(counts)
+  
+  # Generate Adtime with specified counts
+  adtime_values <- rep(names(counts), times = counts)
+  
+  # Generate the rest of the data
+  data <- data.frame(
+    Group = character(n),
+    Adtime = adtime_values,
+     PorchaseProp = sample(c(0, 1), n, replace = TRUE),
+    Age = sample(c("20-30", "30-40", "40-55"), n, replace = TRUE),
+    Gender = sample(c("Male", "Female"), n, replace = TRUE),
+    Income = sample(c("40000-59999", "60000-74999", "75000-99999", ">100000"), n, replace = TRUE)
+  )
+  
+  # Assign Group based on Adtime
+  data$Group <- ifelse(data$Adtime == 0, "Control", "Treatment")
+  conditions <- list(
+    list(Adtime = 30, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = "75000-99999",  PorchasePropProb =0.65),
+    list(Adtime = 0, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income ="75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income =">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65)
+    
+    
+  )
+  
+  # Adjust  PorchaseProp probability under specific conditions
+  for (i in 1:nrow(data)) {
+    for (cond in conditions) {
+      if (data$Adtime[i] == cond$Adtime && data$Age[i] == cond$Age && data$Income[i] == cond$Income) {
+        data$ PorchaseProp[i] <- sample(c(0, 1), 1, prob = c(1 - cond$ PorchasePropProb, cond$ PorchasePropProb))
+        break
+      }
+    }
+  }
+  
+  return(data)
+}
+set.seed(200)
+noeffecttrain <- generate_datanoeffect()
+set.seed(400)
+noeffecttest <- generate_datanoeffect()
+
+pvalue1a <- data.frame()
+for (i in 1:1000) {
+  # Set seed for reproducibility
+  set.seed(1031 + i)
+  effecttrain <- generate_dataeffect()
+  train_control <- trainControl(method = "cv", number = 10)
+  model1a = glm( PorchaseProp ~ Adtime,data = noeffecttrain, family = "binomial",maxit=200)
+  pvalue1a <- rbind(pvalue1a, t(coef(summary(model1a))[, 4]))
+  
+}
+colnames(pvalue1a) <- rownames(data.frame(coef(summary(model1a)),key="(Intercept)",value ="Estimate"))
+
+```
+
+##### Analysis
+
+```{r q3_scenario1_analysis__2}
+set.seed(1031)
+model1a = glm( PorchaseProp ~ Adtime,data = noeffecttrain, family = "binomial",maxit=200)
+summary(model1a)
+
+```
+
+
+
+#### Scenario 2:  An Expected Effect
+
+**Authors (Names and Percentages)**: Yuxuan Liu 100%
+
+##### Simulation
+
+```{r q3_scenario2_simulation__3}
+
+##Data Generate (Effect:Adtime will have negative influence on customers' purchase choose)
+generate_dataeffect <- function() {
+  # Set specific counts for Adtime values
+  counts <- c(`0` = 1239, `30` = 413, `60` = 413, `90` = 413)
+  n <- sum(counts)
+  
+  # Generate Adtime with specified counts
+  adtime_values <- rep(names(counts), times = counts)
+  
+  # Generate the rest of the data
+  data <- data.frame(
+    Group = character(n),
+    Adtime = adtime_values,
+    PorchaseProp = sample(c(0, 1), n, replace = TRUE),
+    Age = sample(c("20-30", "30-40", "40-55"), n, replace = TRUE),
+    Gender = sample(c("Male", "Female"), n, replace = TRUE),
+    Income = sample(c("40000-59999", "60000-74999", "75000-99999", ">100000"), n, replace = TRUE)
+  )
+  
+  # Assign Group based on Adtime
+  data$Group <- ifelse(data$Adtime == 0, "Control", "Treatment")
+  conditions <- list(
+    list(Adtime = 30, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.7),
+    list(Adtime = 30, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.6),
+    list(Adtime = 30, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.5),
+    list(Adtime = 0, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.8),
+    list(Adtime = 0, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.7),
+    list(Adtime = 0, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.6),
+    list(Adtime = 60, Age = "20-30", Income ="75000-99999",  PorchasePropProb = 0.6),
+    list(Adtime = 60, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.5),
+    list(Adtime = 90, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.3),
+    list(Adtime = 30, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.6),
+    list(Adtime = 30, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.5),
+    list(Adtime = 30, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.4),
+    list(Adtime = 0, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.7),
+    list(Adtime = 0, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.6),
+    list(Adtime = 0, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.4),
+    list(Adtime = 60, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.3),
+    list(Adtime = 90, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.3),
+    list(Adtime = 90, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.2),
+    list(Adtime = 30, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.5),
+    list(Adtime = 30, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.4),
+    list(Adtime = 30, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.3),
+    list(Adtime = 0, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.6),
+    list(Adtime = 0, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.5),
+    list(Adtime = 0, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.4),
+    list(Adtime = 60, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.4),
+    list(Adtime = 60, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.3),
+    list(Adtime = 60, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.2),
+    list(Adtime = 90, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.3),
+    list(Adtime = 90, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.2),
+    list(Adtime = 90, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.1),
+    list(Adtime = 30, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.8),
+    list(Adtime = 30, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.7),
+    list(Adtime = 30, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.6),
+    list(Adtime = 0, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.9),
+    list(Adtime = 0, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.8),
+    list(Adtime = 0, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.7),
+    list(Adtime = 60, Age = "20-30", Income =">100000",  PorchasePropProb = 0.6),
+    list(Adtime = 60, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.5),
+    list(Adtime = 90, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.5),
+    list(Adtime = 90, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.3)
+    
+    
+  )
+  
+  # Adjust  PorchaseProp probability under specific conditions
+  for (i in 1:nrow(data)) {
+    for (cond in conditions) {
+      if (data$Adtime[i] == cond$Adtime && data$Age[i] == cond$Age && data$Income[i] == cond$Income) {
+        data$ PorchaseProp[i] <- sample(c(0, 1), 1, prob = c(1 - cond$ PorchasePropProb, cond$ PorchasePropProb))
+        break
+      }
+    }
+  }
+  
+  return(data)
+}
+set.seed(100)
+effecttrain <- generate_dataeffect()
+set.seed(200)
+effecttest <- generate_dataeffect()
+
+pvalue1 <- data.frame()
+for (i in 1:1000) {
+  # Set seed for reproducibility
+  set.seed(1031 + i)
+  effecttrain <- generate_dataeffect()
+  train_control <- trainControl(method = "cv", number = 10)
+  model1 = glm( PorchaseProp ~ Adtime,data = effecttrain, family = "binomial",maxit=200)
+  pvalue1 <- rbind(pvalue1, t(coef(summary(model1))[, 4]))
+}
+colnames(pvalue1) <- rownames(data.frame(coef(summary(model1)),key="(Intercept)",value ="Estimate"))
+```
+
+##### Analysis
+
+```{r q3_scenario2_analysis__4}
+set.seed(1031)
+model1 = glm( PorchaseProp ~ Adtime,data = effecttrain, family = "binomial",maxit=200)
+summary(model1)
+
+FN30=nrow(pvalue1[pvalue1$Adtime30> 0.05,])
+FN60=nrow(pvalue1[pvalue1$Adtime60> 0.05,])
+FN90=nrow(pvalue1[pvalue1$Adtime90> 0.05,])
+FN0=nrow(pvalue1[pvalue1$`(Intercept)`> 0.05,])
+
+TP30=nrow(pvalue1)-FN30
+TP60=nrow(pvalue1)-FN60
+TP90=nrow(pvalue1)-FN90
+TP0=nrow(pvalue1)-FN0
+
+FP30=nrow(pvalue1a[pvalue1a$Adtime30< 0.05,])
+FP60=nrow(pvalue1a[pvalue1a$Adtime60< 0.05,])
+FP90=nrow(pvalue1a[pvalue1a$Adtime90< 0.05,])
+FP0=nrow(pvalue1a[pvalue1a$`(Intercept)`< 0.05,])
+
+TN30=nrow(pvalue1a)-FP30
+TN60=nrow(pvalue1a)-FP60
+TN90=nrow(pvalue1a)-FP90
+TN0=nrow(pvalue1a)-FP0
+#Result
+True_Positive_Rate_Q3_AD30=TP30/(TP30+FN30)
+False_Negative_Rate_Q3_AD30=FN30/(TP30+FN30)
+True_Negative_Rate_Q3_AD30=TN30/(TN30+FP30)
+False_Positive_Rate_Q3_AD30=FP30/(TN30+FP30)
+
+True_Positive_Rate_Q3_AD60=TP60/(TP60+FN60)
+False_Negative_Rate_Q3_AD60=FN60/(TP60+FN60)
+True_Negative_Rate_Q3_AD60=TN60/(TN60+FP60)
+False_Positive_Rate_Q3_AD60=FP60/(TN60+FP60)
+
+True_Positive_Rate_Q3_AD90=TP90/(TP90+FN90)
+False_Negative_Rate_Q3_AD90=FN90/(TP90+FN90)
+True_Negative_Rate_Q3_AD90=TN90/(TN90+FP90)
+False_Positive_Rate_Q3_AD90=FP90/(TN90+FP90)
+
+True_Positive_Rate_Q3_AD0=TP0/(TP0+FN0)
+False_Negative_Rate_Q3_AD0=FN0/(TP0+FN0)
+True_Negative_Rate_Q3_AD0=TN0/(TN0+FP0)
+False_Positive_Rate_Q3_AD0=FP0/(TN0+FP0)
+
+AD30data <- data.frame(True_Positive_Rate_Q3_AD30,False_Negative_Rate_Q3_AD30,True_Negative_Rate_Q3_AD30,False_Positive_Rate_Q3_AD30)
+AD60data <- data.frame(True_Positive_Rate_Q3_AD60,False_Negative_Rate_Q3_AD60,True_Negative_Rate_Q3_AD60,False_Positive_Rate_Q3_AD60)
+AD90data <- data.frame(True_Positive_Rate_Q3_AD90,False_Negative_Rate_Q3_AD90,True_Negative_Rate_Q3_AD90,False_Positive_Rate_Q3_AD90)
+
+AD30data
+AD60data
+AD90data
+
+###95% Confidence Interval of Mean Effect for Model1
+adata <- data.frame(Adtime =c(0,30,60,90))
+adata$Adtime <- as.factor(adata$Adtime)
+rea <- data.frame(predict(model1, newdata = adata,type = "response",se.fit = TRUE))
+rea[1,]
+renewa <- rea[-c(0.6634383,0.01342446,1),]
+renewa$fit <- renewa$fit-rea$fit[1]
+renewa$se.fit <- sqrt(renewa$se.fit**2+rea$se.fit[1]**2)
+renewa
+CIa <- data.frame(Upper=c(renewa$fit+1.96*renewa$se.fit),
+                 lower=c(renewa$fit-1.96*renewa$se.fit))
+CIa
+```
+  
+  For question 3, in order to understand the impact of advertising time on customers' purchase choices in detail, I decided to build a regression model and check its results. From the question, my independent variable is AD time, and my dependent variable is whether the customer buys it, which is called Choose in the dataset. This is a binary variable, when Choose= 0, the customer does not buy, and when Choose=1, the customer chooses to buy. Based on the above information, I decided to use logistic regression, and to ensure that the model has enough iterations we set maxit=200, where maxit is integer giving the maximal number of IWLS iteration. Finally, our function is glm(y~x,data,family =family = "binomial",maxit=200). Then using Summary(model1) we can get the AIC score.
+  
+  Using the Summry function to summarize my model1, we can get the result shown in the figure above. First of all, we can see the intercept and Adtime30 Adtime60, Adtime90, are very significant. Their P-value is far less than 0.05. Therefore, in general, advertising time is a very significant value for customers' purchase choice. At the same time, we can see from the screenshot of the result that the group of advertising time equal to 0 is missing. This is because according to the principle of logistic regression, the advertising time equal to 0 becomes interpect. The function of advertising time 0 is e^(0.65345)/1+e^(0.65345), and the purchase probability is 0.65778. And Adtime30 Adtime60 Adtime90 in the summary (model1) estimate is compared with the base of the change of the coefficient, Therefore, the coefficient of advertising time 30s is Intercept (advertising time =0) -estimate of advertising time 30s. In this case, according to the origin of logistic regression, We calculate the purchase probability formula is e^(0.65345-0.42486)/(1+e^(0.65345-0.42486)), we can get the probability of customer purchase under the advertising time 30s, this value is 0.55689. Similarly, we can also get the formula e^(0.65345-0.94114)/(1+e^(0.65345-0.94114)) for the advertising time of 60s, and the purchase probability is 0.42856. The probability calculation formula of 90s advertising time is e^(0.65345-1.15267)/(1+e^(0.65345-1.15267)), and the purchase probability is 0.3772. We can see that the whole purchase probability decreases with the increase of the advertising time. Therefore, from this function, we can see that when the advertising time reaches 60s and 90s, the probability of customers buying tickets is compared with that of customers when the advertising time reaches 60s and 90s, which is also in line with the conjecture of our generated data, that with the increase of advertising time, the probability of customers buying tickets will be lower and lower. Meanwhile, from summary(model1), we can get that the AIC Curve of function is 3278.9.
+
+
+### Research Question 4:
+
+#### Scenario 1:  No Effect
+
+**Authors (Names and Percentages)**: Yuxuan Liu 100%
+
+
+##### Simulation
+
+```{r q4_scenario1_simulation}
+generate_datanoeffect <- function() {
+  # Set specific counts for Adtime values
+  counts <- c(`0` = 1239, `30` = 413, `60` = 413, `90` = 413)
+  n <- sum(counts)
+  
+  # Generate Adtime with specified counts
+  adtime_values <- rep(names(counts), times = counts)
+  
+  # Generate the rest of the data
+  data <- data.frame(
+    Group = character(n),
+    Adtime = adtime_values,
+     PorchaseProp = sample(c(0, 1), n, replace = TRUE),
+    Age = sample(c("20-30", "30-40", "40-55"), n, replace = TRUE),
+    Gender = sample(c("Male", "Female"), n, replace = TRUE),
+    Income = sample(c("40000-59999", "60000-74999", "75000-99999", ">100000"), n, replace = TRUE)
+  )
+  
+  # Assign Group based on Adtime
+  data$Group <- ifelse(data$Adtime == 0, "Control", "Treatment")
+  conditions <- list(
+    list(Adtime = 30, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = "75000-99999",  PorchasePropProb =0.65),
+    list(Adtime = 0, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income ="75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 30, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 0, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "20-30", Income =">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 60, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.65),
+    list(Adtime = 90, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.65)
+    
+    
+  )
+  
+  # Adjust  PorchaseProp probability under specific conditions
+  for (i in 1:nrow(data)) {
+    for (cond in conditions) {
+      if (data$Adtime[i] == cond$Adtime && data$Age[i] == cond$Age && data$Income[i] == cond$Income) {
+        data$ PorchaseProp[i] <- sample(c(0, 1), 1, prob = c(1 - cond$ PorchasePropProb, cond$ PorchasePropProb))
+        break
+      }
+    }
+  }
+  
+  return(data)
+}
+set.seed(200)
+noeffecttrain <- generate_datanoeffect()
+set.seed(400)
+noeffecttest <- generate_datanoeffect()
+
+
+pvalue3a <- data.frame()
+for (i in 1:1000) {
+  set.seed(1031 + i)
+  effecttrain <- generate_dataeffect()
+  train_control <- trainControl(method = "cv", number = 10)
+  model3a = glm( PorchaseProp ~ Adtime+Income+Age,data = noeffecttrain, family = "binomial",maxit=200)
+  pvalue3a <- rbind(pvalue3a, t(coef(summary(model3a))[, 4]))
+  
+}
+colnames(pvalue3a) <- rownames(data.frame(coef(summary(model3a)),key="(Intercept)",value ="Estimate"))
+
+```
+
+##### Analysis
+
+```{r q4_scenario1_analysis}
+set.seed(3093)
+model3a = glm( PorchaseProp ~ Adtime+Income+Age,data = noeffecttrain, family = "binomial",maxit=200)
+summary(model3a)
+
+```
+
+
+
+#### Scenario 2:  An Expected Effect
+
+**Authors (Names and Percentages)**: Yuxuan Liu 100%
+
+##### Simulation
+
+```{r q3_scenario2_simulation}
+generate_dataeffect <- function() {
+  # Set specific counts for Adtime values
+  counts <- c(`0` = 1239, `30` = 413, `60` = 413, `90` = 413)
+  n <- sum(counts)
+  
+  # Generate Adtime with specified counts
+  adtime_values <- rep(names(counts), times = counts)
+  
+  # Generate the rest of the data
+  data <- data.frame(
+    Group = character(n),
+    Adtime = adtime_values,
+    PorchaseProp = sample(c(0, 1), n, replace = TRUE),
+    Age = sample(c("20-30", "30-40", "40-55"), n, replace = TRUE),
+    Gender = sample(c("Male", "Female"), n, replace = TRUE),
+    Income = sample(c("40000-59999", "60000-74999", "75000-99999", ">100000"), n, replace = TRUE)
+  )
+  
+  # Assign Group based on Adtime
+  data$Group <- ifelse(data$Adtime == 0, "Control", "Treatment")
+  conditions <- list(
+    list(Adtime = 30, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.7),
+    list(Adtime = 30, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.6),
+    list(Adtime = 30, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.5),
+    list(Adtime = 0, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.8),
+    list(Adtime = 0, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.7),
+    list(Adtime = 0, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.6),
+    list(Adtime = 60, Age = "20-30", Income ="75000-99999",  PorchasePropProb = 0.6),
+    list(Adtime = 60, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "20-30", Income = "75000-99999",  PorchasePropProb = 0.5),
+    list(Adtime = 90, Age = "30-40", Income = "75000-99999",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "40-55", Income = "75000-99999",  PorchasePropProb = 0.3),
+    list(Adtime = 30, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.6),
+    list(Adtime = 30, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.5),
+    list(Adtime = 30, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.4),
+    list(Adtime = 0, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.7),
+    list(Adtime = 0, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.6),
+    list(Adtime = 0, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.4),
+    list(Adtime = 60, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.3),
+    list(Adtime = 90, Age = "20-30", Income = "60000-74999",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "30-40", Income = "60000-74999",  PorchasePropProb = 0.3),
+    list(Adtime = 90, Age = "40-55", Income = "60000-74999",  PorchasePropProb = 0.2),
+    list(Adtime = 30, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.5),
+    list(Adtime = 30, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.4),
+    list(Adtime = 30, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.3),
+    list(Adtime = 0, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.6),
+    list(Adtime = 0, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.5),
+    list(Adtime = 0, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.4),
+    list(Adtime = 60, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.4),
+    list(Adtime = 60, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.3),
+    list(Adtime = 60, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.2),
+    list(Adtime = 90, Age = "20-30", Income = "40000-59999",  PorchasePropProb = 0.3),
+    list(Adtime = 90, Age = "30-40", Income = "40000-59999",  PorchasePropProb = 0.2),
+    list(Adtime = 90, Age = "40-55", Income = "40000-59999",  PorchasePropProb = 0.1),
+    list(Adtime = 30, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.8),
+    list(Adtime = 30, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.7),
+    list(Adtime = 30, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.6),
+    list(Adtime = 0, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.9),
+    list(Adtime = 0, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.8),
+    list(Adtime = 0, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.7),
+    list(Adtime = 60, Age = "20-30", Income =">100000",  PorchasePropProb = 0.6),
+    list(Adtime = 60, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.5),
+    list(Adtime = 60, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.4),
+    list(Adtime = 90, Age = "20-30", Income = ">100000",  PorchasePropProb = 0.5),
+    list(Adtime = 90, Age = "30-40", Income = ">100000",  PorchasePropProb = 0.5),
+    list(Adtime = 90, Age = "40-55", Income = ">100000",  PorchasePropProb = 0.3)
+    
+    
+  )
+  
+  # Adjust  PorchaseProp probability under specific conditions
+  for (i in 1:nrow(data)) {
+    for (cond in conditions) {
+      if (data$Adtime[i] == cond$Adtime && data$Age[i] == cond$Age && data$Income[i] == cond$Income) {
+        data$ PorchaseProp[i] <- sample(c(0, 1), 1, prob = c(1 - cond$ PorchasePropProb, cond$ PorchasePropProb))
+        break
+      }
+    }
+  }
+  
+  return(data)
+}
+
+
+
+
+set.seed(100)
+effecttrain <- generate_dataeffect()
+set.seed(200)
+effecttest <- generate_dataeffect()
+
+pvalue3 <- data.frame()
+for (i in 1:1000) {
+  # Set seed for reproducibility
+  set.seed(1031 + i)
+  effecttrain <- generate_dataeffect()
+  train_control <- trainControl(method = "cv", number = 10)
+  model3 = glm( PorchaseProp ~ Adtime+Income+Age,data = effecttrain, family = "binomial",maxit=200)
+  pvalue3 <- rbind(pvalue3, t(coef(summary(model3))[, 4]))
+
+}
+colnames(pvalue3) <- rownames(data.frame(coef(summary(model3)),key="(Intercept)",value ="Estimate"))
+
+```
+
+##### Analysis
+
+```{r q3_scenario2_analysis}
+set.seed(3093)
+model3 = glm( PorchaseProp ~ Adtime+Income+Age,data = effecttrain, family = "binomial",maxit=200)
+summary(model3)
+
+FN30=nrow(pvalue3[pvalue3$Adtime30> 0.05,])
+FN60=nrow(pvalue3[pvalue3$Adtime60> 0.05,])
+FN90=nrow(pvalue3[pvalue3$Adtime90> 0.05,])
+FN0=nrow(pvalue3[pvalue3$`(Intercept)`> 0.05,])
+
+TP30=nrow(pvalue3)-FN30
+TP60=nrow(pvalue3)-FN60
+TP90=nrow(pvalue3)-FN90
+TP0=nrow(pvalue3)-FN0
+
+FP30=nrow(pvalue3a[pvalue3a$Adtime30< 0.05,])
+FP60=nrow(pvalue3a[pvalue3a$Adtime60< 0.05,])
+FP90=nrow(pvalue3a[pvalue3a$Adtime90< 0.05,])
+FP0=nrow(pvalue3a[pvalue3a$`(Intercept)`< 0.05,])
+
+TN30=nrow(pvalue3a)-FP30
+TN60=nrow(pvalue3a)-FP60
+TN90=nrow(pvalue3a)-FP90
+TN0=nrow(pvalue3a)-FP0
+
+FNInco4059=nrow(pvalue3[pvalue3$`Income40000-59999`> 0.05,])
+FNInco6074=nrow(pvalue3[pvalue3$`Income60000-74999`> 0.05,])
+FNInco7599=nrow(pvalue3[pvalue3$`Income75000-99999`> 0.05,])
+FNAge34=nrow(pvalue3[pvalue3$`Age30-40`> 0.05,])
+FNAge45=nrow(pvalue3[pvalue3$`Age40-55`> 0.05,])
+
+TPInco4059=nrow(pvalue3)-FNInco4059
+TPInco6074=nrow(pvalue3)-FNInco6074
+TPInco7599=nrow(pvalue3)-FNInco7599
+TPAge34=nrow(pvalue3)-FNAge34
+TPAge45=nrow(pvalue3)-FNAge45
+
+FPInco4059=nrow(pvalue3a[pvalue3a$`Income40000-59999`< 0.05,])
+FPInco6074=nrow(pvalue3a[pvalue3a$`Income60000-74999`< 0.05,])
+FPInco7599=nrow(pvalue3a[pvalue3a$`Income75000-99999`< 0.05,])
+FPAge34=nrow(pvalue3a[pvalue3a$`Age30-40`< 0.05,])
+FPAge45=nrow(pvalue3a[pvalue3a$`Age40-55`< 0.05,])
+
+TNInco4059=nrow(pvalue3a)-FPInco4059
+TNInco6074=nrow(pvalue3a)-FPInco6074
+TNInco7599=nrow(pvalue3a)-FPInco7599
+TNAge34=nrow(pvalue3a)-FPAge34
+TNAge45=nrow(pvalue3a)-FPAge45
+#Result
+True_Positive_Rate_Q4_AD30=TP30/(TP30+FN30)
+False_Negative_Rate_Q4_AD30=FN30/(TP30+FN30)
+True_Negative_Rate_Q4_AD30=TN30/(TN30+FP30)
+False_Positive_Rate_Q4_AD30=FP30/(TN30+FP30)
+
+True_Positive_Rate_Q4_AD60=TP60/(TP60+FN60)
+False_Negative_Rate_Q4_AD60=FN60/(TP60+FN60)
+True_Negative_Rate_Q4_AD60=TN60/(TN60+FP60)
+False_Positive_Rate_Q4_AD60=FP60/(TN60+FP60)
+
+True_Positive_Rate_Q4_AD90=TP90/(TP90+FN90)
+False_Negative_Rate_Q4_AD90=FN90/(TP90+FN90)
+True_Negative_Rate_Q4_AD90=TN90/(TN90+FP90)
+False_Positive_Rate_Q4_AD90=FP90/(TN90+FP90)
+
+
+True_Positive_Rate_Q4_Inco4059=TPInco4059/(TPInco4059+FNInco4059)
+False_Negative_Rate_Q4_Inco4059=FNInco4059/(TPInco4059+FNInco4059)
+True_Negative_Rate_Q4_Inco4059=TNInco4059/(TNInco4059+FPInco4059)
+False_Positive_Rate_Q4_Inco4059=FPInco4059/(TNInco4059+FPInco4059)
+
+True_Positive_Rate_Q4_Inco6074=TPInco6074/(TPInco6074+FNInco6074)
+False_Negative_Rate_Q4_Inco6074=FNInco6074/(TPInco6074+FNInco6074)
+True_Negative_Rate_Q4_Inco6074=TNInco6074/(TNInco6074+FPInco6074)
+False_Positive_Rate_Q4_Inco6074=FPInco6074/(TNInco6074+FPInco6074)
+
+True_Positive_Rate_Q4_Inco7599=TP30/(TPInco7599+FNInco7599)
+False_Negative_Rate_Q4_Inco7599=FN30/(TPInco7599+FNInco7599)
+True_Negative_Rate_Q4_Inco7599=TN30/(TNInco7599+FPInco7599)
+False_Positive_Rate_Q4_Inco7599=FP30/(TNInco7599+FPInco7599)
+
+True_Positive_Rate_Q4_Age34=TPAge34/(TPAge34+FNAge34)
+False_Negative_Rate_Q4_Age34=FNAge34/(TPAge34+FNAge34)
+True_Negative_Rate_Q4_Age34=TNAge34/(TNAge34+FPAge34)
+False_Positive_Rate_Q4_Age34=FPAge34/(TNAge34+FPAge34)
+
+True_Positive_Rate_Q4_Age45=TPAge45/(TPAge45+FNAge45)
+False_Negative_Rate_Q4_Age45=FNAge45/(TPAge45+FNAge45)
+True_Negative_Rate_Q4_Age45=TNAge45/(TNAge45+FPAge45)
+False_Positive_Rate_Q4_Age45=FPAge45/(TNAge45+FPAge45)
+
+AD30datamodel3 <- data.frame(True_Positive_Rate_Q4_AD30,False_Negative_Rate_Q4_AD30,True_Negative_Rate_Q4_AD30,False_Positive_Rate_Q4_AD30)
+AD60datamodel3  <- data.frame(True_Positive_Rate_Q4_AD60,False_Negative_Rate_Q4_AD60,True_Negative_Rate_Q4_AD60,False_Positive_Rate_Q4_AD60)
+AD90datamodel3  <- data.frame(True_Positive_Rate_Q4_AD90,False_Negative_Rate_Q4_AD90,True_Negative_Rate_Q4_AD90,False_Positive_Rate_Q4_AD90)
+Inco4059data <- data.frame(True_Positive_Rate_Q4_Inco4059,False_Negative_Rate_Q4_Inco4059,True_Negative_Rate_Q4_Inco4059,False_Positive_Rate_Q4_Inco4059)
+Inco6074data <- data.frame(True_Positive_Rate_Q4_Inco6074,False_Negative_Rate_Q4_Inco6074,True_Negative_Rate_Q4_Inco6074,False_Positive_Rate_Q4_Inco6074)
+Inco7599data <- data.frame(True_Positive_Rate_Q4_Inco7599,False_Negative_Rate_Q4_Inco7599,True_Negative_Rate_Q4_Inco7599,False_Positive_Rate_Q4_Inco7599)
+Age34data <- data.frame(True_Positive_Rate_Q4_Age34,False_Negative_Rate_Q4_Age34,True_Negative_Rate_Q4_Age34,False_Positive_Rate_Q4_Age34)
+Age45data <- data.frame(True_Positive_Rate_Q4_Age45,False_Negative_Rate_Q4_Age45,True_Negative_Rate_Q4_Age45,False_Positive_Rate_Q4_Age45)
+AD30datamodel3
+AD60datamodel3
+AD90datamodel3
+Inco4059data
+Inco6074data
+Inco7599data 
+Age34data
+Age45data
+###95% Confidence Interval of Mean Effect for Model3
+bdata <- data.frame(Adtime =c(0,0,0,0,0,0,30,60,90),
+                    Income = c(">100000","40000-59999","60000-74999","75000-99999",">100000",">100000",">100000",">100000",">100000"),
+                    Age=c("20-30","20-30","20-30","20-30","30-40","40-55","20-30","20-30","20-30"))
+
+bdata$Adtime <- as.factor(bdata$Adtime)
+reb <- data.frame(predict(model3, newdata = bdata,type = "response",se.fit = TRUE))
+reb$fit[1]
+renewb <- reb[-c(0.8353124, 0.0168989, 1),]
+renewb$fit <- renewb$fit-reb$fit[1]
+renewb$se.fit <- sqrt(renewb$se.fit**2+reb$se.fit[1]**2)
+renewb
+CIb <- data.frame(Upper=c(renewb$fit+1.96*renewb$se.fit),
+                 lower=c(renewb$fit-1.96*renewb$se.fit))
+
+CIb
+
+Meaneffect <- sum(effecttrain$ PorchaseProp == 1) / nrow(effecttrain)-sum(noeffecttrain$ PorchaseProp == 1) / nrow(noeffecttrain)
+print(Meaneffect)
+```
+  For question 4, in order to understand in detail the impact of advertising time and personal features such as age and income on customers' purchase choices, I also choose to build a regression model and check its results. However, because the customer's age and income are relatively private data, we cannot obtain detailed data, but the age group and income group. My independent variables are advertising time, Age and Income. The dependent variables are whether customers buy.The summary result is showing below.
+  sing the Summary function to summarize model3, we can get the result shown in the figure above. First we can see that the intercept and income 4000-59999,income 60000-74999,income 75000-99999, age 30-40,age 40-55, four of these five results are significant. Their P-value is far less than 0.05. Therefore, in general, income and age are very significant values for customers' purchase choices. Therefore, customers' personal features, such as age and income, do have an impact on the purchase rate, which is in line with our setting at the time of data generation. At the same time, we can see from the screenshot of the result that the condition group is missing: advertising time equals 0, Income >100000,Age 20-30. According to the principle of logistic regression, advertising time equals 0, Income >100000,Age 20-30 becomes intercept. Under this condition, the function of purchase probability is e^(1.8206)/(1+e^(1.8206)), and the purchase probability is 0.86063, which is a huge increase compared with 0.65778 in model1. So we can determine the new predictors in more detail how the customer purchase rate is affected. While Adtime30 Adtime60, Adtime90, The estimate of inCOME4000-59999,Income60000-74999,Income75000-99999, Age30-40,Age 40-55 for these variables is compared to the base (AD time equals 0, The coefficient of Income >100000,Age 20-30), therefore, the coefficient of advertising time 30s is the Intercept (advertising time =0) -estimate of advertising time 30s. Based on the principle of logistic regression, The formula for calculating the purchase probability is e^(1.8206-0.5077) /(1+e^(1.8206-0.5077)), and we can get the probability of the customer buying under the condition that the advertising time is 30s, Age and Income are unchanged, which is 0.78799. Similarly, we can also get the probability calculation formula when the advertising time is 60s and Age and Income remain unchanged: e^(1.8206-0.9735)/(1+e^(1.8206-0.9735)), the purchase probability is 0.69995, the probability calculation formula of advertising time 90s is e^(1.8206-1.2703)/(1+e^(1.8206-1.2703)), The purchase probability is 0.6342, which is the influence of the change of a single condition on the purchase rate. If the Age remains unchanged within 60 seconds of the advertising time, the Income J changes to Income 75000-99999. Then probability formula will become e ^ (1.8206-0.9735) / (1 + e (1.8206 0.9735)) *e ^(1.8206-0.1154) / (1 + e ^ (1.8206-0.1154)) the calculation results of 0.59231. The value -0.1154 in function is the Estimate of Income 75000-99999 in the summary table. We can see that the overall purchase probability decreases with the increase of advertising time, and the purchase probability also decreases with the increase of age, which is in line with the rejection caused by the distrust and strangeness of technology among middle-aged and elderly people assumed when we generated the data. At the same time, the lower the income, the lower the probability of buying tickets. These three points perfectly fit the conjecture of my generated data. From summary(model3), we can get that the AIC Curve of function is 3063.1, which indicates that Model3 is better than model1 in the balance of model accuracy and model complexity.
+
+
+
+## References
+Blake T. , Moshary S., Sweeney K., Tadelis S. (2021) Price Salience and Product Choice. Marketing Science 40(4):619-636. https://doi.org/10.1287/mksc.2020.1261
+
+Celuch, K. (2021). Customers' experience of purchasing event tickets: Mining online reviews based on topic modeling and sentiment analysis. [Purchasing event tickets] International Journal of Event and Festival Management, 12(1), 36-50. Doi. https://doi.org/10.1108/IJEFM-06-2020-0034
+
+Fletcher, A. Drip pricing: UK experience. (2012, May 21). 
+Internet Advertising Revenue Report. (2023, April). Full-year 2022 results. Interactive Advertising Bureau. https://www.iab.com/wp-content/uploads/2023/04/IAB_PwC_Internet_Advertising_Revenue_Report_2022.pdf
+
+Reuters. (2023, June 15). Ticketmaster, Live Nation agree to all-in prices as part of Biden's war on junk fees. Reuters. https://www.reuters.com/world/us/ticketmaster-live-nation-agree-all-in-prices-part-biden-war-junk-fees-2023-06-15/
+
+Sarinsky, M. (2021, August 2). Consumers, Beware of the 'Drip Pricing' Drip. The New York Times. https://www.nytimes.com/2021/08/02/opinion/consumers-drip-pricing.html
+
+Shelle Santana, Steven K. Dallas, Vicki G. Morwitz (2020) Consumer Reactions to Drip Pricing. Marketing Science 39(1):188-210. https://doi.org/10.1287/mksc.2019.1207 
+
+Sisario, B., & Stevens, M. (2023, January 24). Ticketmaster Cast as a Powerful ‘Monopoly’ at Senate Hearing. The New York Times. https://www.nytimes.com/2023/01/24/arts/music/ticketmaster-taylor-swift-senate-hearing.html#:~:text=According%20to%20various%20estimates%20cited,the%20quality%20of%20its%20product.
+
+Totzek, D., & Jurgensen, G. (2021). Many a little makes a mickle: Why do consumers negatively react to sequential price disclosure? Psychology & Marketing, 38, 113–128. https://doi.org/10.1002/mar.21426128
+
+Technavio. (2023, August 30). Secondary Tickets Market Size to Increase by USD 2.24 Bn, Driven by the Rising Popularity of Sports Events. PR Newswire. https://www.prnewswire.com/news-releases/secondary-tickets-market-size-to-increase-by-usd-2-24-bn--driven-by-the-rising-popularity-of-sports-events--technavio-301525944.html
+
+**Authors (Names and Percentages)**: 
+[1]“Why Some Older People Are Rejecting Digital Technologies.” ScienceDaily, ScienceDaily, 12 Mar. 2018, www.sciencedaily.com/releases/2018/03/180312091715.htm. 
